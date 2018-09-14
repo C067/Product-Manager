@@ -63,12 +63,28 @@ namespace ProductMang {
 
 	void Manager::displayProduct() {
 		ProductTitle();
+		cout << endl;
+
 		OpenProductFile();
+
+		cout << endl;
+
 		ProductFooter();
 		cout << endl << endl;
 	}
 
 	void Manager::OpenProductFile() {
+		fstream productFile;
+		Product newPro;
+
+		productFile.open("product.txt", ios::in);
+		productFile.ignore(2);
+
+		newPro.load(productFile);
+		cout << newPro << endl;
+
+		productFile.clear();
+		productFile.close();
 
 	}
 
